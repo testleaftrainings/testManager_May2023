@@ -1,0 +1,119 @@
+Makaia - Hybrid Framework
+--------------------------
+It supports both TestNG & BDD (Hybrid)
+Design patttern -> Page Object Model
+Selenium WebDriver -> Used to interact with Web application
+TestNG -> for exceution
+Apache POI -> to read the data from excel
+Cucumber -> to automate BDD test cases
+ExtentReport -> Used to generate HTML summary report
+Maven -> Used for project & dependency management
+
+Import the framework into the workspace:
+-----------------------------------------
+1. Navigate to the https://github.com/testleaftrainings/makaia_framework
+2. Download the framework code as zip file
+3. Extract the zip file in your local system
+4. In Eclipse, File -> Import... -> Select Existing Maven Project
+5. Browse the extracted framework folder and finish
+
+Framework Components:
+---------------------
+Browser & Element (I) -> to design the reusable methods required for automation
+SeleniumBase -> Implementation class for both the interfaces
+			 -> Having all the necessary resuable methods for automation
+			 -> Library for our automation
+			 -> Wrapper class, which contains wrapper methods
+			 -> Commonly implemented exception handling at method level which reduce duplicate code, make automation engineer work simple (increase the productivity)
+			 -> Reusable methods will the make the maintenance easy
+ProjectSpecificMethods -> BaseClass for all the pages and the testcases. Which contains all the common methods and variable required for that project
+Pages -> all the java classses for each page that we navigate in the application
+Testcases -> Java classes for each testcases with detailed steps 
+utils -> to have common programs to interact with the external application	
+	  -> DataLibrary -> used to read the data from excel
+	  -> Reporter -> ExtentReport configuration
+	  
+	  
+DriverInstance -> to have the browser setup
+
+TestNG is used for execution:
+------------------------------
+@BeforeSuite -> startReport() (Reporter)
+	@BeforeTest -> setValues() (Testcase class)
+		@BeforeClass -> startTestCase() (Reporter)
+			@DataProvider -> fetchData() (ProjectSpecificMethods)
+				@BeforeMethod -> preCondition() (ProjectSpecificMethods)
+					@Test -> runLogin() (Testcase class)
+				@AfterMethod -> postCondition() (ProjectSpecificMethods)
+		@AfterClass -> NA
+	@AfterTest -> NA
+@AfterSuite	 -> endResult() (Reporter)
+
+
+Hierarchy classes:
+AbstractTestNGCucumberTests
+	DriverInstance
+		Reporter
+			SeleniumBase
+				ProjectSpecificMethods
+					Pages & Testcase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		 
