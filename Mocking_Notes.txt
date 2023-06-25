@@ -1,0 +1,23 @@
+Mocking
+1. When the development is not yet completed, we want to draft the script and check whether the code is working fine or not
+
+2. Whenever the API server is down. No need to depend on the real server for your exceution
+
+Wiremock
+---------
+1.Download wiremock server from https://wiremock.org/docs/download-and-installation/
+2. start the server using the below command
+java -jar wiremock-jre8-standalone-2.35.0.jar
+
+to change the port
+java -jar wiremock-jre8-standalone-2.35.0.jar -port=8081
+
+3. Add below dependency in pom.xml in eclipse
+		<dependency>
+			<groupId>com.github.tomakehurst</groupId>
+			<artifactId>wiremock-jre8-standalone</artifactId>
+			<version>2.35.0</version>
+		</dependency>
+		
+4. Implement stub code and execute
+		
